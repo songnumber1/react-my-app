@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Link, Routes } from "react-router-dom";
+import CounterContainer from "./containers/CounterContainer";
+import ApiContainer from "./containers/ApiContainer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ul>
+        <li>
+          <Link to="/">CounterContainer</Link>
+        </li>
+        <li>
+          <Link to="/api">ApiContainer</Link>
+        </li>
+      </ul>
+      <hr />
+      <Routes>
+        <Route path="/" exact={true} element={<CounterContainer />} />
+        <Route path="/api" element={<ApiContainer />} />
+      </Routes>
     </div>
   );
 }
