@@ -1,31 +1,39 @@
 const initialState = {
-  age: 20,
+  age: 20
 };
 
 const api = (state = initialState, action) => {
   const newState = { ...state };
 
   switch (action.type) {
-    case "AGE_UP_ASYNC":
+    case 'AGE_UP_ASYNC':
       newState.age += action.value;
       break;
 
-    case "AGE_DOWN":
+    case 'AGE_DOWN':
       newState.age -= action.value;
       break;
-    case "CALL_APIS_FULFILLED":
-      console.log("second", action.value);
+
+    case 'CALL_APIS_FULFILLED':
+      console.log('second', action.value);
       break;
-    case "CALL_APIS_FULFILLED3":
-      console.log("third", action.value);
+
+    case 'CALL_APIS_FULFILLED3':
+      console.log('third', action.value);
       break;
-    case "CALL_POST_API":
-      console.log("first", action.value);
+
+    case 'CALL_POST_API':
+      console.log('first', action.value);
       break;
-    case "NOTIFY":
-      console.log("all done!");
+
+    case 'NOTIFY':
+      console.log('all done!');
+      break;
+
+    default:
       break;
   }
+
   return newState;
 };
 
