@@ -1,16 +1,34 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 
 function Api({ age, onAgeUp, onAgeDown, callApis }) {
   return (
-    <div className="App">
-      <div className="Age-label">
+    <div>
+      <h1>Redux + Redux Saga + Redux Toolkit 페이지</h1>
+      <div>
         your age: <span>{age}</span>
       </div>
-      <button onClick={onAgeUp}>Age UP</button>
-      <button onClick={onAgeDown}>Age Down</button>
-      <button onClick={callApis}>should do a get, post and alert</button>
+      <div style={style.agelabel}>
+        <Button variant="success" onClick={onAgeUp}>
+          Age UP
+        </Button>
+        &nbsp;
+        <Button variant="warning" onClick={onAgeDown}>
+          Age Down
+        </Button>
+        &nbsp;
+        <Button variant="danger" onClick={callApis}>
+          Call Mutil Api
+        </Button>
+      </div>
     </div>
   );
 }
+
+const style = {
+  agelabel: {
+    marginTop: '20px'
+  }
+};
 
 export default Api;
