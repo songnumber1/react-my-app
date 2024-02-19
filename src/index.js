@@ -3,26 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
-import rootReducer, { rootSaga } from './modules';
+
 import { BrowserRouter } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import createStore, { customHistory } from './store/store';
 
-const customHistory = createBrowserHistory({
-  forceRefresh: true
-});
-const sagaMiddleware = createSagaMiddleware({
-  context: {
-    history: customHistory
-  }
-}); // 사가 미들웨어를 만듭니다.
-
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
-
-sagaMiddleware.run(rootSaga);
+const store = createStore();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
