@@ -1,13 +1,15 @@
 import { takeLatest, put, delay, call } from 'redux-saga/effects';
 import { fetchData, fetchData2, fetchData3 } from '../api/apiservices';
-// import { delay } from "redux-saga";
+import { apiSliceAction } from '../modules/api';
+
 function* ageUpAsync() {
   console.log('ageup async');
   yield delay(2000);
-  yield put({ type: 'AGE_UP_ASYNC', value: 1 });
+  yield put(apiSliceAction.AGE_UP_ASYNC(1));
 }
 
 export function* watchAgeUp() {
+  console.log('watchAgeUp');
   yield takeLatest('AGE_UP', ageUpAsync);
 }
 
@@ -15,15 +17,15 @@ function* callApis(action) {
   console.log('call api async');
   try {
     const data2 = yield call(fetchData2);
-    yield put({ type: 'CALL_POST_API', value: data2 });
+    yield put(apiSliceAction.CALL_POST_API(data2));
 
     const data = yield call(fetchData);
-    yield put({ type: 'CALL_APIS_FULFILLED', value: data });
+    yield put(apiSliceAction.CALL_APIS_FULFILLED(data));
 
     const data3 = yield call(fetchData3);
-    yield put({ type: 'CALL_APIS_FULFILLED3', value: data3 });
+    yield put(apiSliceAction.CALL_APIS_FULFILLED3(data3));
 
-    yield put({ type: 'NOTIFY' });
+    yield put(apiSliceAction.NOTIFY());
   } catch (e) {
     console.log(e);
   }
@@ -34,6 +36,6 @@ function* callApis(action) {
 }
 
 export function* watchApiCalls() {
-  console.log('calling api');
+  console.log('watchApiCalls');
   yield takeLatest('CALL_APIS', callApis);
 }

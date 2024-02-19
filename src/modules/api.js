@@ -1,40 +1,33 @@
+import { createSlice } from '@reduxjs/toolkit';
+
 const initialState = {
   age: 20
 };
 
-const api = (state = initialState, action) => {
-  const newState = { ...state };
-
-  switch (action.type) {
-    case 'AGE_UP_ASYNC':
-      newState.age += action.value;
-      break;
-
-    case 'AGE_DOWN':
-      newState.age -= action.value;
-      break;
-
-    case 'CALL_APIS_FULFILLED':
-      console.log('second', action.value);
-      break;
-
-    case 'CALL_APIS_FULFILLED3':
-      console.log('third', action.value);
-      break;
-
-    case 'CALL_POST_API':
-      console.log('first', action.value);
-      break;
-
-    case 'NOTIFY':
+export const apiSlice = createSlice({
+  name: 'apiSlice',
+  initialState: initialState,
+  reducers: {
+    AGE_UP_ASYNC: (state, action) => {
+      state.age += action.payload;
+    },
+    AGE_DOWN: (state, action) => {
+      state.age -= action.payload;
+    },
+    CALL_APIS_FULFILLED: (state, action) => {
+      console.log('second', action.payload);
+    },
+    CALL_APIS_FULFILLED3: (state, action) => {
+      console.log('third', action.payload);
+    },
+    CALL_POST_API: (state, action) => {
+      console.log('first', action.payload);
+    },
+    NOTIFY: (state, action) => {
       console.log('all done!');
-      break;
-
-    default:
-      break;
+    }
   }
+});
 
-  return newState;
-};
-
-export default api;
+export const apiSliceAction = apiSlice.actions;
+export default apiSlice.reducer;

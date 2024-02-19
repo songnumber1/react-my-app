@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from '../modules';
 import { rootSaga } from '../sagas/index';
 import { createBrowserHistory } from 'history';
-import logger from 'redux-logger';
+//import logger from 'redux-logger';
 
 export const customHistory = createBrowserHistory({
   forceRefresh: true
@@ -19,7 +19,8 @@ const createStore = () => {
   const store = configureStore({
     reducer: rootReducer,
     devTools: true,
-    middleware: () => [sagaMiddleware, logger]
+    middleware: () => [sagaMiddleware]
+    // middleware: () => [sagaMiddleware, logger]
   });
 
   sagaMiddleware.run(rootSaga);
