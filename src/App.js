@@ -1,18 +1,18 @@
 import { Container } from 'react-bootstrap';
 import Layout from './layout/Layout';
 import { Route, Routes } from 'react-router-dom';
-import CounterContainer from './containers/CounterContainer';
-import ApiContainer from './containers/ApiContainer';
-import Home from './components/Home';
+import CounterPage from './page/CounterPage';
+import ApiPage from './page/ApiPage';
+import HomePage from './page/HomePage';
 
 function App() {
   return (
     <Layout>
-      <Container style={{ minHeight: '75vh', marginTop: '20px' }}>
+      <Container style={{ marginTop: '20px' }}>
         <Routes>
-          <Route path="/counter" element={<CounterContainer />} />
-          <Route path="/api" element={<ApiContainer />} />
-          <Route path="/" exact={true} element={<Home />} />
+          <Route path="/" exact={true} element={<HomePage />} />
+          <Route path="/counter" element={<CounterPage />} />
+          <Route path="/api" element={<ApiPage />} />
         </Routes>
       </Container>
     </Layout>
