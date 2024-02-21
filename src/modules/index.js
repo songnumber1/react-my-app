@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import counter from './counter';
-import api from './api';
+import api from './axois';
 
 const rootReducer = combineReducers({ counter, api });
 

@@ -2,7 +2,7 @@ import { Container } from 'react-bootstrap';
 import Layout from './layout/Layout';
 import { Route, Routes } from 'react-router-dom';
 import CounterPage from './page/CounterPage';
-import ApiPage from './page/ApiPage';
+import AxoisPage from './page/AxoisPage';
 import HomePage from './page/HomePage';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" exact={true} element={<HomePage />} />
           <Route path="/counter" element={<CounterPage />} />
-          <Route path="/api" element={<ApiPage />} />
+          <Route path="/axois" element={<AxoisPage />} />
         </Routes>
       </Container>
     </Layout>

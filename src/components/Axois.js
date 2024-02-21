@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 
-function Api({ age, onAgeUp, onAgeDown, callApis }) {
+function Axois({ age, onAgeUp, onAgeDown, callApis }) {
   return (
     <div>
       <h1>Redux + Redux Saga + Redux Toolkit 페이지</h1>
@@ -31,4 +31,4 @@ const style = {
   }
 };
 
-export default Api;
+export default Axois;

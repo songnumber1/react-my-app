@@ -1,13 +1,4 @@
-import axios from 'axios';
-export const fetchData = async () => {
-  try {
-    const response = await fetch('https://randomuser.me/api');
-    const data = await response.json();
-    return data;
-  } catch (e) {
-    console.log(e);
-  }
-};
+import axios from '../config/axois';
 
 export const fetchData2 = async () => {
   try {
@@ -26,6 +17,15 @@ export const fetchData3 = () => {
         Accept: 'application/json'
       }
     })
+    .then(res => res.data)
+    .catch(error => {
+      throw error;
+    });
+};
+
+export const localFetch = () => {
+  return axios
+    .get('/api/home')
     .then(res => res.data)
     .catch(error => {
       throw error;

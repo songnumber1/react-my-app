@@ -17,7 +17,7 @@ const Header = () => {
             >
               <Nav.Link href="/">HOME</Nav.Link>
               <Nav.Link href="/counter">COUNTER</Nav.Link>
-              <Nav.Link href="/api">API</Nav.Link>
+              <Nav.Link href="/axois">API</Nav.Link>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

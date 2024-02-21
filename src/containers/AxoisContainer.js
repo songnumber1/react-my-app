@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Api from './../components/Api';
-import { apiSliceAction } from '../modules/api';
+import Axois from '../components/Axois';
+import { apiSliceAction } from '../modules/axois';
 
-function ApiContainer() {
+function AxoisContainer() {
   const age = useSelector(state => state.api.age);
 
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ function ApiContainer() {
     dispatch({ type: 'CALL_APIS', value: 1 });
   };
 
-  return <Api age={age} onAgeUp={onAgeUp} onAgeDown={onAgeDown} callApis={callApis} />;
+  return <Axois age={age} onAgeUp={onAgeUp} onAgeDown={onAgeDown} callApis={callApis} />;
 }
 
-export default ApiContainer;
+export default AxoisContainer;

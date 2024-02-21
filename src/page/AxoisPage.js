@@ -1,10 +1,10 @@
 import React from 'react';
-import ApiContainer from '../containers/ApiContainer';
+import AxoisContainer from '../containers/AxoisContainer';
 
 function ApiPage() {
   return (
     <div>
-      <ApiContainer />
+      <AxoisContainer />
     </div>
   );
 }
