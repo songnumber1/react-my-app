@@ -1,20 +1,21 @@
 import axiosInstance from './axois';
 
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { loadingSliceAction } from './../modules/loading';
 
 const Interceptor = ({ children }) => {
+  const isLoading = useSelector(state => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const onIncrease = () => {
-      dispatch({ type: 'ISLOADING', payload: true });
-    };
-
     axiosInstance.interceptors.request.use(
       function (config) {
-        onIncrease();
-        console.log('requestInterceptor');
+        console.log('requestDispatch', isLoading);
+        dispatch({ type: loadingSliceAction.ISLOADING, payload: true });
+        console.log('requestDispatch', isLoading);
+
         return config;
       },
       function (error) {}
@@ -22,13 +23,12 @@ const Interceptor = ({ children }) => {
 
     axiosInstance.interceptors.response.use(
       function (response) {
-        dispatch({ type: 'DECREASE' });
-        console.log('responseInterceptor', response.data);
+        console.log('responseDispatch', isLoading);
         return response;
       },
       function (error) {}
     );
-  }, [dispatch]);
+  }, [dispatch, isLoading]);
   return children;
 };
 
