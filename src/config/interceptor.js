@@ -1,15 +1,14 @@
 import axiosInstance from './axois';
 
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { increase } from '../modules/counter';
+import { useDispatch } from 'react-redux';
 
 const Interceptor = ({ children }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     const onIncrease = () => {
-      dispatch(increase());
+      dispatch({ type: 'ISLOADING', payload: true });
     };
 
     axiosInstance.interceptors.request.use(
