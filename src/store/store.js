@@ -15,17 +15,13 @@ const sagaMiddleware = createSagaMiddleware({
   }
 }); // 사가 미들웨어를 만듭니다.
 
-const createStore = () => {
-  const store = configureStore({
-    reducer: rootReducer,
-    devTools: true,
-    middleware: () => [sagaMiddleware]
-    // middleware: () => [sagaMiddleware, logger]
-  });
+const store = configureStore({
+  reducer: rootReducer,
+  devTools: true,
+  middleware: () => [sagaMiddleware]
+  // middleware: () => [sagaMiddleware, logger]
+});
 
-  sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(rootSaga);
 
-  return store;
-};
-
-export default createStore;
+export default store;

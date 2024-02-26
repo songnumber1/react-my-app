@@ -12,8 +12,10 @@ const initialState = 0;
 export default function counter(state = initialState, action) {
   switch (action.type) {
     case INCREASE:
+      console.log('INCREASE');
       return state + 1;
     case DECREASE:
+      console.log('DECREASE');
       return state - 1;
     default:
       return state;

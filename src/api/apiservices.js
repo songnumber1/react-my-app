@@ -1,4 +1,5 @@
-import axios from '../config/axois';
+import axiosInstance from '../config/axois';
+import axios from 'axios';
 
 export const fetchData2 = async () => {
   try {
@@ -24,7 +25,7 @@ export const fetchData3 = () => {
 };
 
 export const localFetch = () => {
-  return axios
+  return axiosInstance
     .get('/api/home')
     .then(res => res.data)
     .catch(error => {
