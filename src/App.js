@@ -5,8 +5,20 @@ import CounterPage from './page/CounterPage';
 import AxoisPage from './page/AxoisPage';
 import HomePage from './page/HomePage';
 import { Interceptor } from './config/interceptor';
+import Spinner from 'react-bootstrap/Spinner';
+import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
+  const isLoading = useSelector(state => state.loading.isLoading);
+
+  if (isLoading) {
+    return (
+      <div>
+        <Spinner animation="grow" />
+      </div>
+    );
+  }
+
   return (
     <Interceptor>
       <Layout>
